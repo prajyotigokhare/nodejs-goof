@@ -1,0 +1,31 @@
+pipeline {
+ agent any
+   tools {
+     nodejs 'v10.19.0'
+  }
+stages {
+ stage('check'){
+steps {
+git credentialsId: '123', url: 'https://github.com/prajyotii/node-jenkins.git'
+ }
+   }
+stage('build'){
+  steps {
+     sh 'npm install'
+  }
+  }
+    stage('Sonarqube')
+  {
+ steps {
+sh "npm install sonar-scanner"
+ sh "npm run sonar"
+     }
+   }
+stage('deploy')
+{
+steps {
+sh "pm2 start app/server.js"
+   }
+  }
+}
+}
