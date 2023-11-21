@@ -6,7 +6,7 @@ pipeline {
 stages {
  stage('check'){
 steps {
-git credentialsId: '123', url: 'https://github.com/prajyotigokhare/nodejs-goof.git'
+git branch: 'main', credentialsId: '123', url: 'https://github.com/prajyotigokhare/nodejs-goof.git'
  }
    }
 stage('build'){
