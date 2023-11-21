@@ -14,4 +14,5 @@ stage('build'){
      sh 'npm install'
   }
   }
+}
    
