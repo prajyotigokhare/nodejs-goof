@@ -14,5 +14,10 @@ stage('build'){
      sh 'npm install'
   }
   }
+  stage('Test') {
+        steps {
+             snykSecurity( snykInstallation: 'snyk', snykTokenId: 'snykid' )
+           }  
+         }
  }
 }
